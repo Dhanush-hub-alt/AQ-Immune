@@ -11,7 +11,6 @@ import { AdminDashboardPage } from '@pages/admin/AdminDashboardPage';
 import { UserProfilePage } from '@pages/profile/UserProfilePage';
 import { MapPage } from '@pages/map/MapPage';
 import { AlertsPage } from '@pages/alerts/AlertsPage';
-import { DevicesPage } from '@pages/devices/DevicesPage';
 import { AnalyticsPage } from '@pages/analytics/AnalyticsPage';
 import { NotFoundPage } from '@pages/NotFoundPage';
 
@@ -34,11 +33,11 @@ const MainLayout: React.FC<MainLayoutProps> = ({ children }) => {
   const [sidebarOpen, setSidebarOpen] = useState(false);
 
   return (
-    <div className="flex h-screen overflow-hidden">
+    <div className="flex h-screen w-full overflow-hidden bg-slate-50 dark:bg-slate-950 transition-colors duration-300">
       <Sidebar open={sidebarOpen} onClose={() => setSidebarOpen(false)} />
-      <div className="flex-1 flex flex-col overflow-hidden lg:ml-64">
+      <div className="flex-1 flex flex-col h-full overflow-hidden lg:ml-64">
         <Navbar onMenuClick={() => setSidebarOpen(!sidebarOpen)} />
-        <main className="flex-1 overflow-y-auto">
+        <main className="flex-1 overflow-y-auto w-full h-full relative">
           {children}
         </main>
       </div>
@@ -72,9 +71,6 @@ export const App: React.FC = () => {
           } />
           <Route path="/alerts" element={
             <ProtectedRoute><MainLayout><AlertsPage /></MainLayout></ProtectedRoute>
-          } />
-          <Route path="/devices" element={
-            <ProtectedRoute><MainLayout><DevicesPage /></MainLayout></ProtectedRoute>
           } />
           <Route path="/analytics" element={
             <ProtectedRoute><MainLayout><AnalyticsPage /></MainLayout></ProtectedRoute>

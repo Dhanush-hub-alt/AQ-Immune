@@ -141,83 +141,72 @@ export const LoginPage: React.FC = () => {
         transition={{ duration: 0.6, ease: 'easeOut' }}
         className="relative z-10 w-full max-w-md"
       >
-        <div className="glass-card rounded-3xl p-8 border border-white/10 shadow-2xl">
+        <div className="glass-card rounded-3xl p-8 border border-slate-200 dark:border-white/10 shadow-2xl">
           {/* Logo */}
           <div className="flex flex-col items-center mb-8">
             <motion.div
               initial={{ scale: 0 }}
               animate={{ scale: 1 }}
               transition={{ delay: 0.2, type: 'spring', bounce: 0.5 }}
-              className="w-16 h-16 rounded-2xl flex items-center justify-center mb-4 animate-glow-pulse"
-              style={{ background: 'linear-gradient(135deg, #00d4ff, #06ffd4)', boxShadow: '0 0 30px rgba(0,212,255,0.4)' }}
+              className="w-16 h-16 rounded-2xl flex items-center justify-center mb-4 border border-cyan-400/30"
+              style={{ background: 'linear-gradient(135deg, #0ea5e9, #06ffd4)' }}
             >
-              <Wind className="w-8 h-8 text-slate-900" />
+              <Wind className="w-8 h-8 text-white dark:text-slate-900" />
             </motion.div>
-            <h1 className="text-2xl font-bold font-display neon-text">AQ-Immune</h1>
-            <p className="text-slate-400 text-sm mt-1">AI Air Quality Intelligence Platform</p>
+            <h1 className="text-2xl font-bold font-display text-slate-900 dark:text-cyan-400">AQ-Immune</h1>
+            <p className="text-slate-500 dark:text-slate-400 text-sm mt-1">AI Air Quality Intelligence Platform</p>
           </div>
 
           {/* Login type toggle */}
-          <div className="flex gap-2 mb-6 p-1 rounded-xl bg-white/5 border border-white/10">
+          <div className="flex gap-2 mb-6 p-1 rounded-xl bg-slate-100 dark:bg-white/5 border border-slate-200 dark:border-white/10">
             <button
               onClick={() => setLoginType('user')}
               className={`flex-1 flex items-center justify-center gap-2 py-2.5 rounded-xl text-sm font-semibold transition-all
-                ${loginType === 'user' ? 'bg-white/15 text-white shadow' : 'text-slate-400 hover:text-white'}`}
+                ${loginType === 'user' ? 'bg-white dark:bg-white/15 text-slate-900 dark:text-white shadow-sm dark:shadow' : 'text-slate-500 dark:text-slate-400 hover:text-slate-900 dark:hover:text-white'}`}
             >
               <User className="w-4 h-4" /> User
             </button>
             <button
               onClick={() => setLoginType('admin')}
               className={`flex-1 flex items-center justify-center gap-2 py-2.5 rounded-xl text-sm font-semibold transition-all
-                ${loginType === 'admin' ? 'bg-red-500/20 text-red-400 shadow border border-red-500/30' : 'text-slate-400 hover:text-white'}`}
+                ${loginType === 'admin' ? 'bg-red-50 dark:bg-red-500/20 text-red-600 dark:text-red-400 shadow-sm border border-red-200 dark:border-red-500/30' : 'text-slate-500 dark:text-slate-400 hover:text-slate-900 dark:hover:text-white'}`}
             >
               <Shield className="w-4 h-4" /> Admin
             </button>
           </div>
 
-          {/* Admin hint */}
-          {loginType === 'admin' && (
-            <motion.div
-              initial={{ opacity: 0, height: 0 }}
-              animate={{ opacity: 1, height: 'auto' }}
-              className="mb-4 p-3 rounded-xl bg-red-500/10 border border-red-500/20 text-xs text-red-300"
-            >
-              <p className="font-semibold mb-1">Admin Credentials:</p>
-              <p>Email: <span className="text-red-200">admin123@gmail.com</span></p>
-              <p>Password: <span className="text-red-200">admin123</span></p>
-            </motion.div>
-          )}
+
 
           {/* Form */}
           <form onSubmit={handleSubmit} className="space-y-4">
             <div>
-              <label className="block text-xs font-semibold text-slate-400 uppercase tracking-wider mb-1.5">
+              <label className="block text-xs font-semibold text-slate-500 dark:text-slate-400 uppercase tracking-wider mb-1.5">
                 Email Address
               </label>
               <input
                 type="email" name="email" value={formData.email}
                 onChange={handleChange} placeholder="you@example.com"
-                className={`w-full px-4 py-3 rounded-xl text-sm text-white placeholder-slate-500
-                  bg-white/5 border focus:outline-none focus:ring-1 transition-all
-                  ${errors.email ? 'border-red-500/50 focus:ring-red-500/30' : 'border-white/10 focus:border-cyan-500/50 focus:ring-cyan-500/20'}`}
+                className={`w-full px-4 py-3 rounded-xl text-sm text-slate-900 dark:text-white placeholder-slate-400 dark:placeholder-slate-500
+                  bg-white dark:bg-white/5 border focus:outline-none focus:ring-1 transition-all
+                  ${errors.email ? 'border-red-500/50 focus:ring-red-500/30' : 'border-slate-200 dark:border-white/10 focus:border-cyan-500/50 focus:ring-cyan-500/20'}`}
               />
               {errors.email && <p className="text-red-400 text-xs mt-1">{errors.email}</p>}
             </div>
 
             <div>
-              <label className="block text-xs font-semibold text-slate-400 uppercase tracking-wider mb-1.5">
+              <label className="block text-xs font-semibold text-slate-500 dark:text-slate-400 uppercase tracking-wider mb-1.5">
                 Password
               </label>
               <div className="relative">
                 <input
                   type={showPassword ? 'text' : 'password'} name="password" value={formData.password}
                   onChange={handleChange} placeholder="Enter your password"
-                  className={`w-full px-4 py-3 pr-11 rounded-xl text-sm text-white placeholder-slate-500
-                    bg-white/5 border focus:outline-none focus:ring-1 transition-all
-                    ${errors.password ? 'border-red-500/50 focus:ring-red-500/30' : 'border-white/10 focus:border-cyan-500/50 focus:ring-cyan-500/20'}`}
+                  className={`w-full px-4 py-3 pr-11 rounded-xl text-sm text-slate-900 dark:text-white placeholder-slate-400 dark:placeholder-slate-500
+                    bg-white dark:bg-white/5 border focus:outline-none focus:ring-1 transition-all
+                    ${errors.password ? 'border-red-500/50 focus:ring-red-500/30' : 'border-slate-200 dark:border-white/10 focus:border-cyan-500/50 focus:ring-cyan-500/20'}`}
                 />
                 <button type="button" onClick={() => setShowPassword(!showPassword)}
-                  className="absolute right-3 top-1/2 -translate-y-1/2 text-slate-400 hover:text-white transition-colors">
+                  className="absolute right-3 top-1/2 -translate-y-1/2 text-slate-400 dark:text-slate-400 hover:text-slate-600 dark:hover:text-white transition-colors">
                   {showPassword ? <EyeOff className="w-4 h-4" /> : <Eye className="w-4 h-4" />}
                 </button>
               </div>
@@ -244,9 +233,9 @@ export const LoginPage: React.FC = () => {
 
           {/* Footer */}
           {loginType === 'user' && (
-            <p className="text-center text-slate-500 text-xs mt-6">
+            <p className="text-center text-slate-600 dark:text-slate-500 text-xs mt-6">
               No account?{' '}
-              <Link to="/signup" className="text-cyan-400 hover:text-cyan-300 font-semibold">
+              <Link to="/signup" className="text-cyan-600 dark:text-cyan-400 hover:text-cyan-500 dark:hover:text-cyan-300 font-semibold">
                 Create one here
               </Link>
             </p>

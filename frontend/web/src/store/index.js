@@ -145,7 +145,7 @@ const alertsSlice = createSlice({
 const uiSlice = createSlice({
     name: 'ui',
     initialState: {
-        theme: (localStorage.getItem('theme') || 'dark'),
+        theme: (localStorage.getItem('theme') || 'light'),
         sidebarOpen: true,
         notificationsEnabled: true,
     },

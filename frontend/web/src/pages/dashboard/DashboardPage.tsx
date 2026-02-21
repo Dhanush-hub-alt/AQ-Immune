@@ -73,12 +73,10 @@ const StatCard: React.FC<{
     initial={{ opacity: 0, y: 20 }}
     animate={{ opacity: 1, y: 0 }}
     transition={{ duration: 0.5, delay }}
-    className="stat-card neon-border-hover"
-    style={{ borderColor: border + '30' }}
+    className="stat-card"
   >
     <div className="flex items-start justify-between mb-4">
-      <div className="w-11 h-11 rounded-xl flex items-center justify-center"
-        style={{ background: gradient, border: `1px solid ${border}40` }}>
+      <div className="w-11 h-11 rounded-xl flex items-center justify-center bg-slate-100 dark:bg-white/5">
         {icon}
       </div>
       {trend && (
@@ -182,7 +180,7 @@ export const DashboardPage: React.FC = () => {
           initial={{ opacity: 0, scale: 0.95 }}
           animate={{ opacity: 1, scale: 1 }}
           transition={{ duration: 0.5 }}
-          className="lg:col-span-1 glass-card rounded-2xl p-6 flex flex-col items-center justify-center neon-border"
+          className="lg:col-span-1 glass-card rounded-2xl p-6 flex flex-col items-center justify-center"
         >
           <p className="text-xs font-semibold text-slate-400 uppercase tracking-widest mb-3">Current AQI</p>
           <AQIGauge aqi={avgAQI} size={130} />
