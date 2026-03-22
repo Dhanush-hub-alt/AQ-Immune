@@ -1,5 +1,0 @@
-import { jsx as _jsx, jsxs as _jsxs } from "react/jsx-runtime";
-export const Textarea = ({ label, error, helperText, fullWidth = true, className, ...props }) => {
-    return (_jsxs("div", { className: fullWidth ? 'w-full' : '', children: [label && (_jsxs("label", { className: "block text-sm font-medium text-gray-700 dark:text-gray-300 mb-2", children: [label, props.required && _jsx("span", { className: "text-red-500 ml-1", children: "*" })] })), _jsx("textarea", { className: `w-full px-4 py-2 border rounded-lg bg-white dark:bg-gray-800 text-gray-900 dark:text-white border-gray-300 dark:border-gray-600 focus:outline-none focus:ring-2 focus:ring-sky-500 focus:border-transparent transition-all duration-200 resize-none ${error ? 'border-red-500 ring-red-500' : ''} ${className || ''}`, ...props }), error && (_jsx("p", { className: "text-sm text-red-500 mt-1", children: error })), helperText && !error && (_jsx("p", { className: "text-sm text-gray-500 dark:text-gray-400 mt-1", children: helperText }))] }));
-};
-export default Textarea;
